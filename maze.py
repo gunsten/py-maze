@@ -1,4 +1,5 @@
 import random
+from linkedlist import LinkedList as LinkedList
 
 
 class Maze:
@@ -16,6 +17,23 @@ class Maze:
                 self.maze[j][i] ^= 2
         self.w = w
         self.h = h
+
+    def get_walls(self, coord):
+        (i, j) = coord
+        return self.maze[j][i]
+
+    def reachable(self, coord):
+        maze, (i, j) = self.maze, coord
+        reachable = list()
+        if self.get_walls(coord) % 2 == 1:
+            reachable.append((i + 1, j))
+        if self.get_walls(coord) >= 2:
+            reachable.append((i, j + 1))
+        if i > 0 and self.get_walls((i - 1, j)) % 2 == 1:
+            reachable.append((i - 1, j))
+        if j > 0 and self.get_walls((i, j - 1)) >= 2:
+            reachable.append((i, j - 1))
+        return reachable
 
     def as_string(self):
         maze, w, h = self.maze, self.w, self.h
@@ -71,3 +89,30 @@ class Maze:
             g_cells.pop(old_group)
 
         return Maze(w, h, paths)
+
+
+class Solver:
+    @staticmethod
+    def solve(maze, start, end):
+        print(maze)
+        paths = [LinkedList(start)]
+        while True:
+            current = paths.pop(0)
+            visited = None
+            if current.has_tail:
+                visited = current.tail.head
+
+            reachable = maze.reachable(current.head)
+            if reachable:
+                for step in maze.reachable(current.head):
+                    if step == end:
+                        res = LinkedList.cons(step, current).to_list()
+                        res.reverse()
+                        return res
+                    if step == visited:
+                        continue
+                    paths.append(LinkedList.cons(step, current))
+
+
+m = Maze.generate(5, 5)
+print(Solver.solve(m, (0, 0), (4, 4)))
