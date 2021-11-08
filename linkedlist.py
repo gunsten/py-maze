@@ -8,8 +8,6 @@ class LinkedList:
             self.head = value
             self.tail = LinkedList()
             return
-        if value is None:
-            raise ValueError("Cannot add None element to LinkedList")
         self.head = value
         self.tail = linked_list
 
