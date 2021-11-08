@@ -111,7 +111,3 @@ class Solver:
                     if step == visited:
                         continue
                     paths.append(LinkedList.cons(step, current))
-
-
-m = Maze.generate(5, 5)
-print(Solver.solve(m, (0, 0), (4, 4)))
