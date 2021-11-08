@@ -37,8 +37,10 @@ class Maze:
         maze, w, h = self.maze, self.w, self.h
         lines = ["#" * (2 * w + 1)]
         for i in range(0, h):
-            upper = "#" + "".join(["  " if maze[i][j] % 2 == 1 else " #" for j in range(0, w)])
-            lower = "#" + "".join([" #" if maze[i][j] > 1 else "##" for j in range(0, w)])
+            # Horizontal paths
+            upper = "#" + "".join(["  " if maze[i][j] & 1 == 1 else " #" for j in range(0, w)])
+            # Vertical paths
+            lower = "#" + "".join([" #" if maze[i][j] & 2 == 2 else "##" for j in range(0, w)])
             lines.append(upper)
             lines.append(lower)
 
