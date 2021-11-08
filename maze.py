@@ -7,13 +7,9 @@ class Maze:
         self.maze = [
             [0 for x in range(0, w)] for y in range(0, h)]
         for ((i, j), (i_, j_)) in paths:
-            if i > i_:
-                self.maze[j_][i_] ^= 1
-            elif i < i_:
+            if j == j_:
                 self.maze[j][i] ^= 1
-            elif j > j_:
-                self.maze[j_][i_] ^= 2
-            else:
+            elif i == i_:
                 self.maze[j][i] ^= 2
         self.w = w
         self.h = h
@@ -81,7 +77,10 @@ class Maze:
             c_ = random.choice(choices)
 
             # remember chosen path and merge groups
-            paths.append((c, c_))
+            if c > c_:
+                paths.append((c_, c))
+            else:
+                paths.append((c, c_))
             old_group = c_groups[c_]
             for cell in g_cells[old_group]:
                 c_groups[cell] = group
