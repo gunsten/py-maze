@@ -7,10 +7,12 @@ class Maze:
         self.maze = [
             [0 for x in range(0, w)] for y in range(0, h)]
         for ((i, j), (i_, j_)) in paths:
-            if j == j_:
-                self.maze[j][i] ^= 1
-            elif i == i_:
-                self.maze[j][i] ^= 2
+            if j == j_:  # Horizontal path
+                self.maze[j][i] |= 1  # Right
+                self.maze[j_][i_] |= 4  # Left
+            elif i == i_:  # Vertical path
+                self.maze[j][i] |= 2  # Down
+                self.maze[j_][i_] |= 8  # Up
         self.w = w
         self.h = h
 
@@ -19,15 +21,15 @@ class Maze:
         return self.maze[j][i]
 
     def reachable(self, coord):
-        maze, (i, j) = self.maze, coord
+        (i, j) = coord
         reachable = list()
-        if self.get_walls(coord) % 2 == 1:
+        if self.get_walls(coord) & 1 == 1:  # Right is reachable
             reachable.append((i + 1, j))
-        if self.get_walls(coord) >= 2:
+        if self.get_walls(coord) & 2 == 2:  # Down is reachable
             reachable.append((i, j + 1))
-        if i > 0 and self.get_walls((i - 1, j)) % 2 == 1:
+        if self.get_walls(coord) & 4 == 4:  # Left is reachable
             reachable.append((i - 1, j))
-        if j > 0 and self.get_walls((i, j - 1)) >= 2:
+        if self.get_walls(coord) & 8 == 8:  # Up is reachable
             reachable.append((i, j - 1))
         return reachable
 
