@@ -1,5 +1,6 @@
 import random
 from linkedlist import LinkedList as LinkedList
+from linkedlist import cons as cons
 
 
 class Maze:
@@ -109,9 +110,9 @@ class Solver:
             if reachable:
                 for step in maze.reachable(current.head):
                     if step == end:
-                        res = LinkedList.cons(step, current).to_list()
+                        res = cons(step, current).to_list()
                         res.reverse()
                         return res
                     if step == visited:
                         continue
-                    paths.append(LinkedList.cons(step, current))
+                    paths.append(cons(step, current))

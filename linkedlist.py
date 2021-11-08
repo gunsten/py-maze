@@ -17,27 +17,26 @@ class LinkedList:
 
     @property
     def is_empty(self):
-        return self.head is None
+        return self.tail is None
 
     def to_list(self):
-        if not self.has_tail:
-            return []
-        as_list = [self.head]
-        cursor = self.tail
-        while not cursor.is_empty and cursor is not None:
-            as_list.append(cursor.head)
-            cursor = cursor.tail
-        return as_list
+        return [e for e in self]
 
     def __repr__(self):
         return self.to_list().__repr__()
+
+    def __iter__(self):
+        cursor = self
+        while not cursor.is_empty:
+            yield cursor.head
+            cursor = cursor.tail
 
     @staticmethod
     def empty():
         return LinkedList()
 
-    @staticmethod
-    def cons(element, linked_list=None):
-        if linked_list is None or linked_list.is_empty:
-            return LinkedList(element)
-        return LinkedList(element, linked_list)
+
+def cons(element, linked_list=None):
+    if linked_list is None or linked_list.is_empty:
+        return LinkedList(element)
+    return LinkedList(element, linked_list)
