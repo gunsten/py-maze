@@ -32,11 +32,9 @@ class LinkedList:
             cursor = cursor.tail
 
 
-def empty_list():
+def empty_list() -> LinkedList:
     return LinkedList()
 
 
-def cons(element, linked_list=None):
-    if linked_list is None or linked_list.is_empty:
-        return LinkedList(element)
+def cons(element, linked_list) -> LinkedList:
     return LinkedList(element, linked_list)
