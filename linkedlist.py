@@ -31,9 +31,9 @@ class LinkedList:
             yield cursor.head
             cursor = cursor.tail
 
-    @staticmethod
-    def empty():
-        return LinkedList()
+
+def empty_list():
+    return LinkedList()
 
 
 def cons(element, linked_list=None):

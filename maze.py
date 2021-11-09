@@ -1,6 +1,6 @@
 import random
-from linkedlist import LinkedList as LinkedList
-from linkedlist import cons as cons
+from linkedlist import cons
+from linkedlist import empty_list
 
 
 class Maze:
@@ -99,7 +99,7 @@ class Solver:
     @staticmethod
     def solve(maze, start, end):
         print(maze)
-        paths = [LinkedList(start)]
+        paths = [cons(start, empty_list())]
         while True:
             current = paths.pop(0)
             visited = None
