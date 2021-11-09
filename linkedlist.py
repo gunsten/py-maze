@@ -31,6 +31,25 @@ class LinkedList:
             yield cursor.head
             cursor = cursor.tail
 
+    def __eq__(self, other):
+        if self is other:
+            return True
+
+        cursor_s, cursor_o = self, other
+
+        while True:
+            if cursor_s is cursor_o:
+                return True
+            if cursor_s.is_empty and cursor_o.is_empty:
+                return True
+            if cursor_s.is_empty:
+                return False
+            if cursor_o.is_empty:
+                return False
+            if cursor_s.head != cursor_o.head:
+                return False
+            cursor_s, cursor_o = cursor_s.tail, cursor_o.tail
+
 
 def empty_list() -> LinkedList:
     return LinkedList()
