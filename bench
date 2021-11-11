@@ -1,0 +1,108 @@
+Benching for sample of length 1
+Append: 
+7.152557373046875e-07
+Cons: 
+1.9073486328125e-06
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -1
+Pop from array:
+4.76837158203125e-07
+Unhead from linkedlist:
+4.76837158203125e-07
+Diff (s):  0
+Diff (ms): 0
+Diff (us): 0
+Benching for sample of length 10
+Append: 
+9.5367431640625e-07
+Cons: 
+2.86102294921875e-06
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -1
+Pop from array:
+1.1920928955078125e-06
+Unhead from linkedlist:
+9.5367431640625e-07
+Diff (s):  0
+Diff (ms): 0
+Diff (us): 0
+Benching for sample of length 100
+Append: 
+2.86102294921875e-06
+Cons: 
+4.887580871582031e-05
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -46
+Pop from array:
+5.7220458984375e-06
+Unhead from linkedlist:
+1.0013580322265625e-05
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -4
+Benching for sample of length 1000
+Append: 
+1.9788742065429688e-05
+Cons: 
+0.00043964385986328125
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -419
+Pop from array:
+5.984306335449219e-05
+Unhead from linkedlist:
+9.775161743164062e-05
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -37
+Benching for sample of length 10000
+Append: 
+0.00020003318786621094
+Cons: 
+0.002638101577758789
+Diff (s):  0
+Diff (ms): -2
+Diff (us): -2438
+Pop from array:
+0.0006120204925537109
+Unhead from linkedlist:
+0.0010099411010742188
+Diff (s):  0
+Diff (ms): 0
+Diff (us): -397
+Benching for sample of length 100000
+Append: 
+0.002076864242553711
+Cons: 
+0.04037070274353027
+Diff (s):  0
+Diff (ms): -38
+Diff (us): -38293
+Pop from array:
+0.005934953689575195
+Unhead from linkedlist:
+0.012128591537475586
+Diff (s):  0
+Diff (ms): -6
+Diff (us): -6193
+Benching for sample of length 1000000
+Append: 
+0.0280306339263916
+Cons: 
+2.098299741744995
+Diff (s):  -2
+Diff (ms): -2070
+Diff (us): -2070269
+Pop from array:
+0.06111407279968262
+Unhead from linkedlist:
+0.14030098915100098
+Diff (s):  0
+Diff (ms): -79
+Diff (us): -79186
+
+Process finished with exit code 0
+
